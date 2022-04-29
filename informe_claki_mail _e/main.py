@@ -9,7 +9,7 @@ import os
 import math
 
 
-def report_creation(data, cod_school, start, end, sum_hist, logo_file):
+def report_generation(data, cod_school, start, end, sum_hist, logo_file):
     total_recogidas_array = total_recogidas_tipo(data, start, end, cod_school)
     (informe, cod_school, date_report) = report_generator_code(
         data, start, end, total_recogidas_array, cod_school, sum_hist, logo_file)
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         except IndexError:
             logo_file = 'no_logo_school.png'
 
-        (informe, cod_school, date_report) = report_creation(df, i, start, end,
+        (informe, cod_school, date_report) = report_generation(df, i, start, end,
                                                              sum_hist, logo_file)
         link = report_uploading(m, informe)
         name_school = df[df['cod'] == cod_school]['Nombre'].values[0]
